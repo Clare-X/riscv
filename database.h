@@ -12,7 +12,7 @@ using namespace std;
 class rec
 {
 public:
-	char id[30];
+	char id[35];
 	int place;
 	rec()
 	{
@@ -31,7 +31,7 @@ public:
 	string UM,UR;
 	int modSize,stckSize;
 public:
-	Database(const char Umain[],const char Uroad[],int siz1=100,int siz2=1000);
+	explicit  Database(const char Umain[],const char Uroad[],int siz1=100,int siz2=1000);
 
 	virtual ~Database();
 

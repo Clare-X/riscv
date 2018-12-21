@@ -49,25 +49,25 @@ public:
 class users:public Database
 {
 private:
-	string UMM,URR;
+	string UMM;
 
 public:
-	users(const char Umain[],const char Uroad[]):Database(Umain,Uroad,100,10)
+	users(const char Umain[],const char Uroad[]):Database(Umain,Uroad,1000,100)
 	{
-		nowpow=7;
+		Nowpow=7;
 		UMM=Umain;
-		URR=Uroad;
 		user sjtu;
 		strcpy(sjtu.id,"root");
 		strcpy(sjtu.name,"boss");
 		strcpy(sjtu.passwd,"sjtu");
 		sjtu.pow=7;
 		adduser(sjtu);
+		Nowpla=1;
 	}
 
 	~users()=default;
 
-	int nowpow;
+	int Nowpow,Nowpla;
 
 	user* show(char *id);
 
