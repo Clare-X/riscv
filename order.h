@@ -6,8 +6,9 @@
 #define BOOK_ORDER_H
 #include "users.h"
 #include "books.h"
+#include "finance.h"
 #include <algorithm>
-void Processline(char* x,int size,users &Ux,books &BX);
+void Processline(char* x,int size,users &Ux,books &Bx,Finance &Fx);
 
 
 char *Processtoken(char* &x,int &size,int maxsize);
@@ -25,10 +26,10 @@ void Passwd(char* x,int size,users &Ux);
 
 void Select(char* x,int size,users &Ux,books &Bx);
 void Modify(char* x,int size,users &Ux,books &Bx);
-void Import(char* x,int size,users &Ux,books &Bx);
-void Buy(char* x,int size,users &Ux,books &Bx);
+void Import(char* x,int size,users &Ux,books &Bx,Finance &Fx);
+void Buy(char* x,int size,users &Ux,books &Bx,Finance &Fx);
 
-void Show(char* x,int size,users &Ux,books &Bx);
+void Show(char* x,int size,users &Ux,books &Bx,Finance &Fx);
 void ShowA(books &Bx);
 void ShowB(vector<int> X,books &Bx);
 //void ShowF(char* x,int size,users &Ux,books &Bx);

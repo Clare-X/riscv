@@ -13,12 +13,13 @@ int main()
 	if (!Command) return 0;
 	users U("UMain.bin","URoad.bin");
 	books B("BMain.bin","BRoad.bin");
+	Finance F("Fi.bin");
 	while (!Command.eof())
 	{try{
 			//cout<<"xstat\n";
 			Command.getline(x,200);
 			if (strcmp(x,"exit")==0) return 0;
-			Processline(x,strlen(x),U,B);
+			Processline(x,strlen(x),U,B,F);
 			//cout<<"xend\n";
 		}
 	catch(...){

@@ -30,7 +30,6 @@ public:
 
 	void init();
 
-
 	void Addkey(int pla,const char* key);
 
 	void Delkey(int pla,const char* key);

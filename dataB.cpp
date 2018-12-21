@@ -9,9 +9,8 @@ DataB::DataB(const char Bmain[])
 	modSize=920;
 	stckSize=100;
 	mainway.open(BM,fstream::in);
-	init();
-//	if (!mainway) init();
-//	else mainway.close();
+	if (!mainway) init();
+	else mainway.close();
 }
 
 void DataB::init()

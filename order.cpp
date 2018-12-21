@@ -3,7 +3,7 @@
 //
 
 #include "order.h"
-void Processline(char* x,int size,users &Ux,books &Bx)
+void Processline(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 {
 
 	strcat(x," ");size++;
@@ -65,19 +65,19 @@ void Processline(char* x,int size,users &Ux,books &Bx)
 	if (strcmp(y,"import")==0)
 	{
 		delete[] y;
-		Import(x,size,Ux,Bx);
+		Import(x,size,Ux,Bx,Fx);
 		return;
 	}
 	if (strcmp(y,"buy")==0)
 	{
 		delete[] y;
-		Buy(x,size,Ux,Bx);
+		Buy(x,size,Ux,Bx,Fx);
 		return;
 	}
 	if (strcmp(y,"show")==0)
 	{
 		delete[] y;
-		Show(x,size,Ux,Bx);
+		Show(x,size,Ux,Bx,Fx);
 		return;
 	}
 	throw 0;
@@ -295,7 +295,7 @@ void Select(char* x,int size,users &Ux,books &Bx)
 	}
 	delete[] t1;
 }
-void Import(char* x,int size,users &Ux,books &Bx)
+void Import(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 {
 	if (Ux.Nowpow<3) throw 0;
 	if (Bx.Nowplace==-1) throw 0;
@@ -310,8 +310,9 @@ void Import(char* x,int size,users &Ux,books &Bx)
 	Bx.Nowbook.ben+=altben;
 	Bx.writeMainway(Bx.Nowplace,Bx.Nowbook);
 //finance
+	Fx.AddF(Ux.Nowpla,-cost);
 }
-void Buy(char* x,int size,users &Ux,books &Bx)
+void Buy(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 {
 	if (Ux.Nowpow<1) throw 0;
 	char *t1,*t2;
@@ -325,10 +326,12 @@ void Buy(char* x,int size,users &Ux,books &Bx)
 	if (pla==-1) throw 0;
 	book X;
 	Bx.readMainway(pla,X);
+	if (altben>X.ben) throw 0;
 	X.ben-=altben;
 	Bx.writeMainway(pla,X);
 	double cost=altben*X.price;
 	//finance
+	Fx.AddF(Ux.Nowpla,cost);
 }
 
 void Modify(char* x,int size,users &Ux,books &Bx)
@@ -379,7 +382,7 @@ void Modify(char* x,int size,users &Ux,books &Bx)
 	Bx.altNowbook(X);
 
 }
-void Show(char* x,int size,users &Ux,books &Bx)
+void Show(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 {
 	if (Ux.Nowpow<1) throw 0;
 	if (x[0]==' '||x[0]=='\0') {ShowA(Bx);return;}
@@ -388,6 +391,12 @@ void Show(char* x,int size,users &Ux,books &Bx)
 		char *t0=Processtoken(x,size,10);
 		if (strcmp(t0,"finance")!=0) {delete[] t0;throw 0;}
 		//finance
+		delete[] t0;
+		if (x[0]==' '||x[0]=='\0') {Fx.GetLas(-1);return;}
+		t0=Processtoken(x,size,20);
+		int n=STI(t0);
+		Fx.GetLas(n);
+		return;
 	}
 	char *t1=Processorder(x,size,10),*t2;
 	if (strcmp(t1,"ISBN")==0)

@@ -10,9 +10,8 @@ Database::Database(const char Umain[],const char Uroad[],int siz1,int siz2)
 	UM=Umain;
 	UR=Uroad;
 	mainway.open(UM,fstream::in);
-	init();
-	//if (!mainway) init();
-	//else mainway.close();
+	if (!mainway) init();
+	else mainway.close();
 }
 
  Database::~Database()
@@ -22,7 +21,6 @@ Database::Database(const char Umain[],const char Uroad[],int siz1,int siz2)
 void Database::init()
 {
 	int x=0;
-	//cout<<"qaq"<<endl;
 	mainway.close();
 	mainway.open(UM,ios::binary|ios_base::out);
 	roadway.open(UR,ios::binary|ios_base::out);
