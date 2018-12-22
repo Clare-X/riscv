@@ -53,7 +53,7 @@ public:
 		cout<<keyw<<'\t';
 		cout.setf(ios::fixed);
 		cout<<fixed<<setprecision(2)<<price<<'\t';
-		cout<<ben<<"±¾"<<endl;
+		cout<<ben<<"æœ¬"<<endl;
 	}
 	bool operator<(const book &b)
 	{
