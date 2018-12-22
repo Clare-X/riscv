@@ -31,9 +31,9 @@ public:
 	string UM,UR;
 	int modSize,stckSize;
 public:
-	explicit  Database(const char Umain[],const char Uroad[],int siz1=100,int siz2=1000);
+	Database(const char Umain[],const char Uroad[],int siz1=100,int siz2=1000);
 
-	virtual ~Database();
+	virtual ~Database()=default;
 
 	void init();
 

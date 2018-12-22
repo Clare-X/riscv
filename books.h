@@ -43,6 +43,7 @@ public:
 		strcpy(name,x.name);
 		strcpy(keyw,x.keyw);
 		ben=x.ben;price=x.price;
+		return *this;
 	}
 	void print()
 	{

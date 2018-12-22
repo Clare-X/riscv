@@ -14,10 +14,6 @@ Database::Database(const char Umain[],const char Uroad[],int siz1,int siz2)
 	else mainway.close();
 }
 
- Database::~Database()
-{
-}
-
 void Database::init()
 {
 	int x=0;

@@ -42,6 +42,7 @@ public:
 		strcpy(passwd,x.passwd);
 		strcpy(name,x.name);
 		pow=x.pow;
+		return *this;
 	}
 
 };
