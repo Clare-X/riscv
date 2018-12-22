@@ -217,8 +217,7 @@ void Su(char* x,int size,users &Ux)
 	Ux.readMainway(temp,Su);
 	if (Su.pow<Ux.Nowpow)
 	{
-		if (x[0]!=' '&&x[0]!='\0') throw 0;
-		else {Ux.Nowpow=Su.pow;Ux.Nowpla=temp;}
+		Ux.Nowpow=Su.pow;Ux.Nowpla=temp;
 	}
 	else {
 		t2=Processtoken(x,size,35);
@@ -425,6 +424,7 @@ void Show(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 		if (strcmp(t0,"finance")!=0) {delete[] t0;throw 0;}
 		//finance
 		delete[] t0;
+		if (Ux.Nowpow<7) throw 0;
 		if (x[0]==' '||x[0]=='\0') {Fx.GetLas(-1);return;}
 		t0=Processtoken(x,size,20);
 		int n=STI(t0);

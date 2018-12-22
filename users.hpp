@@ -55,15 +55,24 @@ private:
 public:
 	users(const char* Umain,const char* Uroad):Database(Umain,Uroad,1000,100)
 	{
-		Nowpow=7;
 		UMM=Umain;
-		user sjtu;
-		strcpy(sjtu.id,"root");
-		strcpy(sjtu.name,"boss");
-		strcpy(sjtu.passwd,"sjtu");
-		sjtu.pow=7;
-		adduser(sjtu);
-		Nowpla=1;
+		if (flag)
+		{
+			Nowpow=7;
+			user sjtu;
+			strcpy(sjtu.id,"root");
+			strcpy(sjtu.name,"boss");
+			strcpy(sjtu.passwd,"sjtu");
+			sjtu.pow=7;
+			adduser(sjtu);
+			Nowpla=1;
+		}
+		else
+		{
+			Nowpow=7;
+			Nowpla=1;
+		}
+
 	}
 
 	~users()=default;
