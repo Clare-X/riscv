@@ -30,6 +30,7 @@ public:
 	fstream roadway;
 	string UM,UR;
 	int modSize,stckSize;
+	bool flag;
 public:
 	Database(const char* Umain,const char* Uroad,int siz1,int siz2);
 
@@ -78,6 +79,7 @@ Database::Database(const char* Umain,const char* Uroad,int siz1,int siz2)
 	UM=Umain;
 	UR=Uroad;
 	mainway.open(UM,fstream::in);
+	flag=false;
 	if (!mainway) init();
 	else mainway.close();
 }
@@ -86,6 +88,7 @@ void Database::init()
 {
 	int x=0;
 	mainway.close();
+	flag=true;
 	mainway.open(UM,ios::binary|ios_base::out);
 	roadway.open(UR,ios::binary|ios_base::out);
 	mainway.seekp(0,ios::beg);
