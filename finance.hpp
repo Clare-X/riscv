@@ -79,7 +79,7 @@ public:
 		A=X1.MoneyA-X2.MoneyA;
 		B=X1.MoneyB-X2.MoneyB;
 		cout.setf(ios::fixed);
-		cout<<" + "<<fixed<<setprecision(2)<<A;
+		cout<<"+ "<<fixed<<setprecision(2)<<A;
 		cout<<" - "<<fixed<<setprecision(2)<<B<<endl;
 	}
 
