@@ -2,7 +2,7 @@
 // Created by 18146 on 2018/12/17.
 //
 #include "database.h"
-Database::Database(const char Umain[],const char Uroad[],int siz1,int siz2)
+Database::Database(const char* Umain,const char* Uroad,int siz1,int siz2)
 {
 //	cout<<"build"<<endl;
 	modSize=siz1;

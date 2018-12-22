@@ -24,7 +24,7 @@ public:
 class DataB
 {
 public:
-	explicit DataB(const char Bmain[]);
+	explicit DataB(const char* Bmain);
 
 	~DataB()=default;
 

@@ -3,7 +3,7 @@
 //
 
 #include "dataB.h"
-DataB::DataB(const char Bmain[])
+DataB::DataB(const char* Bmain)
 {
 	BM=Bmain;
 	modSize=920;

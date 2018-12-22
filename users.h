@@ -53,7 +53,7 @@ private:
 	string UMM;
 
 public:
-	users(const char Umain[],const char Uroad[]):Database(Umain,Uroad,1000,100)
+	users(const char* Umain,const char* Uroad):Database(Umain,Uroad,1000,100)
 	{
 		Nowpow=7;
 		UMM=Umain;

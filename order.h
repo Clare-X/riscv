@@ -8,6 +8,7 @@
 #include "books.h"
 #include "finance.h"
 #include <algorithm>
+
 void Processline(char* x,int size,users &Ux,books &Bx,Finance &Fx);
 
 

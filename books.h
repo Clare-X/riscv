@@ -74,7 +74,7 @@ private:
 	string UMM;
 
 public:
-	books(const char Umain[], const char Uroad[]) :
+	books(const char* Umain, const char* Uroad) :
 	Database(Umain, Uroad, 100, 1000),Author("Au.bin"),Keyword("Ke.bin"),Name("Na.bin")
 	{
 		UMM=Umain;
