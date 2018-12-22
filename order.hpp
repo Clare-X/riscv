@@ -2,7 +2,40 @@
 // Created by 18146 on 2018/12/18.
 //
 
-#include "order.h"
+#ifndef BOOK_ORDER_H
+#define BOOK_ORDER_H
+#include "users.hpp"
+#include "books.hpp"
+#include "finance.hpp"
+#include <algorithm>
+using namespace std;
+
+
+char *Processtoken(char* &x,int &size,int maxsize);
+char *ProcesstokenD(char* &x,int &size,int maxsize);
+char *Processorder(char* &x,int &size,int maxsize);
+int STI(char *t);
+double STD(char *t);
+
+void Su(char* x,int size,users &Ux);
+void Logout(char* x,int size,users &Ux);
+void Useradd(char* x,int size,users &Ux);
+void Register(char* x,int size,users &Ux);
+void Delete(char* x,int size,users &Ux);
+void Passwd(char* x,int size,users &Ux);
+
+void Select(char* x,int size,users &Ux,books &Bx);
+void Modify(char* x,int size,users &Ux,books &Bx);
+void Import(char* x,int size,users &Ux,books &Bx,Finance &Fx);
+void Buy(char* x,int size,users &Ux,books &Bx,Finance &Fx);
+
+void Show(char* x,int size,users &Ux,books &Bx,Finance &Fx);
+void ShowA(books &Bx);
+void ShowB(vector<int> X,books &Bx);
+//
+// Created by 18146 on 2018/12/18.
+//
+
 void Processline(char* x,int size,users &Ux,books &Bx,Finance &Fx)
 {
 
@@ -460,3 +493,5 @@ void ShowB(vector<int> X,books &Bx)
 	for (auto I=x.begin();I!=x.end();I++)
 		(*I).print();
 }
+
+#endif //BOOK_ORDER_H
