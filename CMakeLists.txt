@@ -3,4 +3,4 @@ project(code)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(riscv main.cpp id.hpp base.hpp if.hpp ex.hpp wb.hpp)
+add_executable(code main.cpp id.hpp base.hpp if.hpp ex.hpp wb.hpp)
