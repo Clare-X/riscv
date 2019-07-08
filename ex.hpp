@@ -20,14 +20,6 @@ void dmp::EX()
 		case BGE:BGE_EX3();break;
 		case BLTU:BLTU_EX3();break;
 		case BGEU:BGEU_EX3();break;
-		case LB:LB_EX3();break;
-		case LH:LH_EX3();break;
-		case LW:LW_EX3();break;
-		case LBU:LBU_EX3();break;
-		case LHU:LHU_EX3();break;
-		case SB:SB_EX3();break;
-		case SH:SH_EX3();break;
-		case SW:SW_EX3();break;
 		case ADDI:ADDI_EX3();break;
 		case SLTI:SLTI_EX3();break;
 		case SLTIU:SLTIU_EX3();break;
@@ -47,6 +39,8 @@ void dmp::EX()
 		case SRA:SRA_EX3();break;
 		case OR:OR_EX3();break;
 		case AND:AND_EX3();break;
+		case LB:case LH:case LW:case LBU:case LHU:
+		case SB:case SH:case SW:break;
 		default:throw OrderErr();
 	}
 }
@@ -65,8 +59,6 @@ void dmp::JAL_EX3()
 }
 void dmp::JALR_EX3()
 {
-	//std::cout<<"JALR num "<<((inst>>15)&0x1f)<<" rs1 "<<rs1<<" imm "<<imm<<"\n";
-
 	rd=x[32];
 	x[32]=rs1+imm;
 }
@@ -92,42 +84,7 @@ void dmp::BLTU_EX3()
 }
 void dmp::BGEU_EX3()
 {
-	//std::cout<<"BGEU<= rs1 "<<rs1<<" rs2 "<<rs2<<" imm "<<imm<<"\n";
 	if (*(std::uint32_t *)(&rs1)>=*(std::uint32_t *)(&rs2)) x[32]+=imm-4;
-}
-void dmp::LB_EX3()
-{
-	rd=*(std::int8_t *)(data+rs1+imm);
-}
-void dmp::LH_EX3()
-{
-	rd=*(std::int16_t *)(data+rs1+imm);
-}
-void dmp::LW_EX3()
-{
-	rd=*(std::int32_t *)(data+rs1+imm);
-}
-void dmp::LBU_EX3()
-{
-	rd=*(std::uint8_t *)(data+rs1+imm);
-}
-void dmp::LHU_EX3()
-{
-	rd=*(std::uint16_t *)(data+rs1+imm);
-}
-void dmp::SB_EX3()
-{
-	*(std::int8_t *)(data+rs1+imm)=*(std::int8_t *)(&rs2);
-}
-void dmp::SH_EX3()
-{
-
-	*(std::int16_t *)(data+rs1+imm)=*(std::int16_t *)(&rs2);
-}
-void dmp::SW_EX3()
-{
-	//td::cout<<"SW pla "<<rs1+imm<<" rs2 "<<rs2<<"\n";
-	*(std::int32_t *)(data+rs1+imm)=rs2;
 }
 void dmp::ADDI_EX3()
 {
@@ -157,7 +114,6 @@ void dmp::ANDI_EX3()
 void dmp::SLLI_EX3()
 {
 	rd=rs1<<((inst>>20)&0x1f);
-	//rd=rs1<<(imm&0x1f)&(0xffffffff-((1<<(imm&0x1f))-1));
 }
 void dmp::SRLI_EX3()
 {

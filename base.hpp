@@ -58,6 +58,7 @@ class dmp
 	void IF();
 	void ID();
 	void EX();
+	void MEM();
 	void WB();
 
 private:
@@ -83,14 +84,14 @@ private:
 	void BGE_EX3();
 	void BLTU_EX3();
 	void BGEU_EX3();
-	void LB_EX3();
-	void LH_EX3();
-	void LW_EX3();
-	void LBU_EX3();
-	void LHU_EX3();
-	void SB_EX3();
-	void SH_EX3();
-	void SW_EX3();
+	void LB_MEM4();
+	void LH_MEM4();
+	void LW_MEM4();
+	void LBU_MEM4();
+	void LHU_MEM4();
+	void SB_MEM4();
+	void SH_MEM4();
+	void SW_MEM4();
 	void ADDI_EX3();
 	void SLTI_EX3();
 	void SLTIU_EX3();
