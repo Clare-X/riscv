@@ -7,7 +7,7 @@
 #include "base.hpp"
 void dmp::IF()
 {
-	inst=*(std::int32_t *)(data+x[32]);
 	x[32]+=4;
+	inst=*(std::int32_t *)(data+x[32]);
 }
 #endif //RISCV_IF_HPP
