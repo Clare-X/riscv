@@ -42,15 +42,16 @@ int main()
 			++i;
 		}
 	}
+	std::cout<<std::hex;
 	while (true)
 	{
 
-		d[0].IF();
-		d[0].ID();
-		d[0].EX();
-		d[0].MEM();
-		d[0].WB();
-		if (d[0].inst==0x00c68223)
+		d.IF();
+		d.ID();
+		d.EX();
+		d.MEM();
+		d.WB();
+		if (d.inst==0x00c68223)
 		{
 			std::cout<<std::dec<<(x[10]&0xff);
 			return 0;

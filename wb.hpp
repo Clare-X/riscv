@@ -22,5 +22,6 @@ void dmp::WB()
 		//if (((inst>>7)&0x1f)==12) std::cout<<"a2 "<<rd<<" a3 "<<x[13]<<"\n";
 	}
 	x[0]=0;
+	//for (int i=0;i<=32;++i) std::cout<<x[i]<<" ";std::cout<<"\n";
 }
 #endif //RISCV_WB_HPP

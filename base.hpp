@@ -60,7 +60,6 @@ class dmp
 	void EX();
 	void MEM();
 	void WB();
-
 private:
 	void R_ID2();
 
@@ -115,6 +114,7 @@ private:
 
 char data[0x200000] = {0};
 std::int32_t x[33] = {0};
-dmp d[5];
+dmp d;
+int delta=0;
 //std::ofstream file;
 #endif //RISCV_BASE_HPP
