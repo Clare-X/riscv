@@ -50,7 +50,7 @@ void dmp::LUI_EX3()
 }
 void dmp::AUIPC_EX3()
 {
-	rd=imm+x[32]-4;
+	rd=imm+x[32];
 }
 void dmp::JAL_EX3()
 {
