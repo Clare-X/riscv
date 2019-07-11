@@ -54,37 +54,37 @@ void dmp::AUIPC_EX3()
 }
 void dmp::JAL_EX3()
 {
-	rd=x[32];
-	x[32]+=imm-4;
+	rd=x[32]+4;
+	x[32]+=imm;
 }
 void dmp::JALR_EX3()
 {
-	rd=x[32];
-	x[32]=rs1+imm;
+	rd=x[32]+4;
+	x[32]=rs1+imm+4;
 }
 void dmp::BEQ_EX3()
 {
-	if (rs1==rs2) x[32]+=imm-4;
+	if (rs1==rs2) x[32]+=imm;
 }
 void dmp::BNE_EX3()
 {
-	if (rs1!=rs2) x[32]+=imm-4;
+	if (rs1!=rs2) x[32]+=imm;
 }
 void dmp::BLT_EX3()
 {
-	if (rs1<rs2) x[32]+=imm-4;
+	if (rs1<rs2) x[32]+=imm;
 }
 void dmp::BGE_EX3()
 {
-	if (rs1>=rs2) x[32]+=imm-4;
+	if (rs1>=rs2) x[32]+=imm;
 }
 void dmp::BLTU_EX3()
 {
-	if (*(std::uint32_t *)(&rs1)<*(std::uint32_t *)(&rs2)) x[32]+=imm-4;
+	if (*(std::uint32_t *)(&rs1)<*(std::uint32_t *)(&rs2)) x[32]+=imm;
 }
 void dmp::BGEU_EX3()
 {
-	if (*(std::uint32_t *)(&rs1)>=*(std::uint32_t *)(&rs2)) x[32]+=imm-4;
+	if (*(std::uint32_t *)(&rs1)>=*(std::uint32_t *)(&rs2)) x[32]+=imm;
 }
 void dmp::ADDI_EX3()
 {
